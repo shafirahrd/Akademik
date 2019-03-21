@@ -33,7 +33,7 @@ Data Dosen
 					<td>{{ $m->nip }}</td>
 					<td>{{ $m->namadosen }}</td>
 					<td align="center" width="30px">
-						<a href="/dosen/{{$k->nip}}/edit" class="btn btn-warning btn-sm" role="button"><i class="fa fa-pencil-square"></i> Edit</a>
+						<a href="/dosen/{{$m->nip}}/edit" class="btn btn-warning btn-sm" role="button"><i class="fa fa-pencil-square"></i> Edit</a>
 					</td>
 					<td align="center" width="30px">
 						{!! Form::open(array('route' => array('dosen.destroy', $m->nip),

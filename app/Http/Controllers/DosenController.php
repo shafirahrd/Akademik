@@ -36,7 +36,8 @@ class DosenController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        dosen::Create($request->all());
+        return redirect('/dosen');
     }
 
     /**
@@ -58,7 +59,8 @@ class DosenController extends Controller
      */
     public function edit(dosen $dosen)
     {
-        //
+        $dsn = dosen::findorfail($dosen)->first();
+        return view('dosen.edit',compact('dsn'));
     }
 
     /**
@@ -70,7 +72,9 @@ class DosenController extends Controller
      */
     public function update(Request $request, dosen $dosen)
     {
-        //
+        $dsn = dosen::findorfail($dosen);
+        $dsn->update($request->all());
+        return redirect('/dosen');
     }
 
     /**
