@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use DB;
 use App\dosen;
 use Illuminate\Http\Request;
 
@@ -15,7 +16,7 @@ class DosenController extends Controller
     public function index()
     {
         $dsn = dosen::all();
-        
+
         return view('dosen.index',compact('dsn'));
     }
 

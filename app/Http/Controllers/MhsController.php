@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use DB;
 use App\mhs;
+use App\dosen;
 use Illuminate\Http\Request;
 
 class MhsController extends Controller
@@ -26,7 +28,9 @@ class MhsController extends Controller
      */
     public function create()
     {
-        //
+        $dsn = dosen::pluck('namadosen','nip');
+
+        return view ('mhs.create',compact('dsn'));
     }
 
     /**
@@ -37,7 +41,9 @@ class MhsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        mhs::create($request->all());
+
+        return redirect('/mhs');
     }
 
     /**
@@ -59,7 +65,10 @@ class MhsController extends Controller
      */
     public function edit(mhs $mhs)
     {
-        //
+        $mhsnya = mhs::findorfail($mhs)->first();
+        $dosennya = dosen::pluck('namadosen','nip');
+
+        return view('mhs.edit',compact('mhsnya','dosennya'));
     }
 
     /**
@@ -71,7 +80,10 @@ class MhsController extends Controller
      */
     public function update(Request $request, mhs $mhs)
     {
-        //
+        $mhsnya = mhs::findorfail($mhs)->first();
+        $mhsnya->update($request->all());
+
+        return redirect('/mhs');
     }
 
     /**
@@ -82,6 +94,9 @@ class MhsController extends Controller
      */
     public function destroy(mhs $mhs)
     {
-        //
+        $mhsnya = mhs::findorfail($mhs)->first();
+        $mhsnya->delete();
+
+        return redirect('/mhs');
     }
 }

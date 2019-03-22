@@ -3,6 +3,7 @@
 Tambah Data Dosen
 @endsection
 @section('content')
+
 <div class="panel panel-default">
 	<div class="panel-body">
 		<h4><i class="fa fa-plus-square"></i> TAMBAH Dosen</h4>
