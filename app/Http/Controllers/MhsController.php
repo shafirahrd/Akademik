@@ -14,7 +14,9 @@ class MhsController extends Controller
      */
     public function index()
     {
-        //
+        $mhs = DB::table('mhs')->join('dosens','mhs.nipdosenwali','=','dosens.nip')->get();
+
+        return view ('mhs.index',compact('mhs'));
     }
 
     /**

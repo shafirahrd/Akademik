@@ -15,6 +15,7 @@ class DosenController extends Controller
     public function index()
     {
         $dsn = dosen::all();
+        
         return view('dosen.index',compact('dsn'));
     }
 
@@ -37,6 +38,7 @@ class DosenController extends Controller
     public function store(Request $request)
     {
         dosen::Create($request->all());
+
         return redirect('/dosen');
     }
 
@@ -60,6 +62,7 @@ class DosenController extends Controller
     public function edit(dosen $dosen)
     {
         $dsn = dosen::findorfail($dosen)->first();
+
         return view('dosen.edit',compact('dsn'));
     }
 
@@ -74,6 +77,7 @@ class DosenController extends Controller
     {
         $dsn = dosen::findorfail($dosen);
         $dsn->update($request->all());
+
         return redirect('/dosen');
     }
 
@@ -85,6 +89,9 @@ class DosenController extends Controller
      */
     public function destroy(dosen $dosen)
     {
-        //
+        $dsn = dosen::findorfail($dosen)->first();
+        $dsn->delete();
+
+        return redirect('/dosen');
     }
 }

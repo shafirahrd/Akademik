@@ -19,6 +19,7 @@ Route::get('/dosen','DosenController@index');
 Route::get('/dosen/create','DosenController@create');
 Route::get('/dosen/{nip}/edit','DosenController@edit');
 Route::post('/dosen/{nip}/edit','DosenController@update');
+Route::get('/dosen/{nip}','DosenController@destroy')->name('dosen.destroy');
 
 Route::resource('mhs','MhsController');
 Route::resource('dosen','DosenController');
