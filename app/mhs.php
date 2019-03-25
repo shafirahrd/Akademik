@@ -10,4 +10,9 @@ class mhs extends Model
     public $incrementing = false;
 
     protected $fillable = ['nrp','nama','nipdosenwali'];
+
+
+    public function dosens(){
+    	return $this->belongsTo('App\dosen','nip','nipdosenwali');
+    }
 }

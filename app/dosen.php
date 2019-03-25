@@ -10,4 +10,9 @@ class dosen extends Model
     public $incrementing = false;
 
     protected $fillable = ['nip','namadosen'];
+
+
+    public function mhs(){
+    	return $this->hasMany('App\mhs','nipdosenwali','nip');
+    }
 }

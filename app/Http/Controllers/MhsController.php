@@ -16,7 +16,15 @@ class MhsController extends Controller
      */
     public function index()
     {
-        $mhs = DB::table('mhs')->join('dosens','mhs.nipdosenwali','=','dosens.nip')->get();
+        // $mhs = DB::table('mhs')->join('dosens','mhs.nipdosenwali','=','dosens.nip')->get();
+
+        $mhs = mhs::with('dosens')->get();
+
+        // $mhs = mhs::with(['dosens' => function($qry){
+        //     $qry->select('nip','namadosen');
+        // }])->get();
+
+        // $mhs = DB::select(DB::raw('SELECT * FROM mhs join dosens on nip=nipdosenwali'));
 
         return view ('mhs.index',compact('mhs'));
     }
@@ -94,9 +102,10 @@ class MhsController extends Controller
      */
     public function destroy(mhs $mhs)
     {
-        $mhsnya = mhs::findorfail($mhs)->first();
-        $mhsnya->delete();
+        // $mhsnya = mhs::findorfail($mhs)->first();
+        // $mhsnya->delete();
 
+        mhs::where('nrp',$mhs)->delete();
         return redirect('/mhs');
     }
 }

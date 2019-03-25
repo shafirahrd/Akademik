@@ -37,8 +37,7 @@ Data Dosen
 					</td>
 					<td align="center" width="30px">
 						{!! Form::open(array('route' => array('dosen.destroy', $m->nip),
-						'method' => 'delete',
-						'style' => 'display:inline')) !!}
+						'method' => 'delete','style' => 'display:inline')) !!}
 						<button class='btn btn-sm btn-danger delete-btn' type='submit'>
 						<i class='fa fa-times-circle'></i>Delete</button>
 						{!! Form::close() !!}
