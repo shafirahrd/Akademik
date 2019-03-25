@@ -21,7 +21,7 @@ Edit Mahasiswa
 			<div class="col-md-6">
 				<div class="panel panel-default">
 					<div class="panel-body">
-						{!! Form::model($mhsnya,['method'=>'PATCH','action'=>['MhsController@update',$mhsnya['nrp']]]) !!}
+						{!! Form::model($mhsnya,['method'=>'PATCH','action'=>['MhsController@update',$mhsnya->nrp]]) !!}
 						<div class="form-group">
 							{!! Form::label('nrp', 'NRP') !!}
 							{!! Form::text('nrp',null, array('class' =>

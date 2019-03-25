@@ -13,6 +13,6 @@ class mhs extends Model
 
 
     public function dosens(){
-    	return $this->belongsTo('App\dosen','nip','nipdosenwali');
+    	return $this->belongsTo('App\dosen','nipdosenwali','nip');
     }
 }

@@ -76,7 +76,7 @@ class DosenController extends Controller
      */
     public function update(Request $request, dosen $dosen)
     {
-        $dsn = dosen::findorfail($dosen);
+        $dsn = dosen::findorfail($dosen)->first();
         $dsn->update($request->all());
 
         return redirect('/dosen');

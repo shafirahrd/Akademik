@@ -16,9 +16,9 @@ class MhsController extends Controller
      */
     public function index()
     {
-        // $mhs = DB::table('mhs')->join('dosens','mhs.nipdosenwali','=','dosens.nip')->get();
+        $mhs = DB::table('mhs')->join('dosens','mhs.nipdosenwali','=','dosens.nip')->get();
 
-        $mhs = mhs::with('dosens')->get();
+        // $mhs = mhs::all();
 
         // $mhs = mhs::with(['dosens' => function($qry){
         //     $qry->select('nip','namadosen');
@@ -71,9 +71,9 @@ class MhsController extends Controller
      * @param  \App\mhs  $mhs
      * @return \Illuminate\Http\Response
      */
-    public function edit(mhs $mhs)
+    public function edit($mhs)
     {
-        $mhsnya = mhs::findorfail($mhs)->first();
+        $mhsnya = mhs::findorfail($mhs);
         $dosennya = dosen::pluck('namadosen','nip');
 
         return view('mhs.edit',compact('mhsnya','dosennya'));
@@ -86,7 +86,7 @@ class MhsController extends Controller
      * @param  \App\mhs  $mhs
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, mhs $mhs)
+    public function update(Request $request, $mhs)
     {
         $mhsnya = mhs::findorfail($mhs)->first();
         $mhsnya->update($request->all());
@@ -100,12 +100,12 @@ class MhsController extends Controller
      * @param  \App\mhs  $mhs
      * @return \Illuminate\Http\Response
      */
-    public function destroy(mhs $mhs)
+    public function destroy($mhs)
     {
-        // $mhsnya = mhs::findorfail($mhs)->first();
-        // $mhsnya->delete();
+        $mhsnya = mhs::findorfail($mhs);
+        $mhsnya->delete();
 
-        mhs::where('nrp',$mhs)->delete();
+        // mhs::where('nrp',$mhs)->delete();
         return redirect('/mhs');
     }
 }
