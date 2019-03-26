@@ -88,7 +88,7 @@ class MhsController extends Controller
      */
     public function update(Request $request, $mhs)
     {
-        $mhsnya = mhs::findorfail($mhs)->first();
+        $mhsnya = mhs::findorfail($mhs);
         $mhsnya->update($request->all());
 
         return redirect('/mhs');
