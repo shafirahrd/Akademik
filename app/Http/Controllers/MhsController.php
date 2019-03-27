@@ -16,7 +16,7 @@ class MhsController extends Controller
      */
     public function index()
     {
-        $mhs = DB::table('mhs')->join('dosens','mhs.nipdosenwali','=','dosens.nip')->get();
+        $mhs = DB::table('mhs')->join('dosens','mhs.nipdosenwali','=','dosens.nip')->paginate(2);
 
         // $mhs = mhs::all();
 

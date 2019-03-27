@@ -45,6 +45,7 @@ Data Mahasiswa
 				@endforeach
 			</table>
 		</div>
+		{{ $mhs->links() }}
 		@else
 		<div class="alert alert-warning">
 			<i class="fa fa-exclamation-triangle"></i> Data Mahasiswa belum ada
