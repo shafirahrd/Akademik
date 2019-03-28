@@ -15,4 +15,7 @@ class dosen extends Model
     public function mhs(){
     	return $this->hasMany('App\mhs','nipdosenwali','nip');
     }
+    public function pengajar(){
+    	return $this->hasMany('App\pengajar','nipnya','nip');
+    }
 }

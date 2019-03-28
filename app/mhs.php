@@ -15,4 +15,8 @@ class mhs extends Model
     public function dosens(){
     	return $this->belongsTo('App\dosen','nipdosenwali','nip');
     }
+
+    public function pesertas(){
+    	return $this->hasMany('App\peserta','nrpnya','nrp');
+    }
 }
