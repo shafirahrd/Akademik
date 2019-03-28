@@ -24,7 +24,7 @@ Home
 			<h3>Dosen</h3>
 		</div>
 		<ul class="list-group">
-			<li class="list-group-item"><i class="fa fa-universityfa-5x"></i></li>
+			<li class="list-group-item"><i class="fa fa-university fa-5x"></i></li>
 			<li class="list-group-item"><a href="/dosen" class="btn btn-primary"><i class="fa fa-university"></i> DATA DOSEN</a></li>
 		</ul>
 	</div>
